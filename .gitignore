@@ -2,6 +2,9 @@
 data/
 logs/
 *.log
+# Atomic-publish scratch folders (pipeline/save.py) — only left behind if a run is interrupted
+.tmp_*/
+.old_*/
 
 # Local configuration / secrets — keep only the documented example
 .env
@@ -21,3 +24,5 @@ venv/
 .vscode/
 .idea/
 .DS_Store
+Thumbs.db
+desktop.ini
