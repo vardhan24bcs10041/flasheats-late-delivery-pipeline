@@ -1,14 +1,14 @@
 {
-  "run_id": "705b755f",
+  "run_id": "fabfce02",
   "run_date": "2026-09-27",
-  "started_at": "2026-09-27T18:58:22",
+  "started_at": "2026-09-27T19:21:28",
   "chaos": "none",
   "replay_raw": null,
   "window": {
     "from": null,
     "to": null
   },
-  "git_commit": "237b6c5",
+  "git_commit": "36a3d4a",
   "config_fingerprint": "449d5ce4422f",
   "config_overrides": {},
   "config": {
@@ -593,7 +593,7 @@
     }
   },
   "status": "PUBLISHED",
-  "finished_at": "2026-09-27T18:58:28",
+  "finished_at": "2026-09-27T19:21:34",
   "outputs": {
     "bronze": "data/bronze/run_date=2026-09-27",
     "silver": "data/silver/run_date=2026-09-27",
