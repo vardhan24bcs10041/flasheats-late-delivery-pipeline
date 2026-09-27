@@ -1,0 +1,53 @@
+# FlashEats late-delivery pipeline — configuration.
+# Code = behaviour. This file = where / how it runs + the business thresholds.
+# Environment variables (see config/.env.example) override the values marked [env].
+
+sources:
+  order_db: source_systems/database/flasheats.db            # SQL  — Order Platform (Commerce)
+  dispatch_api_url: http://127.0.0.1:8000                   # API  — Dispatch Service [env: DISPATCH_API_URL]
+  dispatch_api_script: source_systems/dispatch_api/mock_dispatch_api.py
+  driver_events: source_systems/exports/driver_events.json  # JSON — Driver App event export
+  support_tickets: source_systems/exports/support_tickets.csv
+  customer_app_actions: source_systems/exports/customer_app_actions.csv
+  order_interventions: source_systems/exports/order_interventions.csv
+  restaurant_status: source_systems/exports/restaurant_status.csv
+  metric_definitions: source_systems/client_docs/client_metric_definitions.json
+
+api:
+  page_size: 100              # [env: PAGE_SIZE]   server caps at 200
+  max_retries: 4              # [env: MAX_RETRIES] bounded — never retry forever
+  retry_base_seconds: 1.0     # [env: RETRY_BASE_SECONDS] exponential backoff: 1s, 2s, 4s ...
+  timeout_seconds: 5
+  retryable_status: [429, 500, 502, 503, 504]   # transient only; 400/401/404 fail fast
+  start_mock_api: true        # [env: START_MOCK_API] classroom only
+
+output:
+  data_dir: data              # bronze / silver / gold partitions live here  [env: OUTPUT_DIR]
+  reports_dir: reports/latest # human-readable evidence published for the client
+  logs_dir: logs
+
+kpi:
+  # Canonical definition published as the project KPI (VP Operations, see docs/04_metrics.md).
+  primary_definition: vp_ops_any_delay
+  late_threshold_min: 0       # late  = delivered_at > promised_eta + 0 min
+  severe_threshold_min: 10    # Support Lead's "meaningfully late"
+  pickup_sla_grace_min: 10    # pickup counted as a miss if > dispatch estimate + 10 min
+
+validation:
+  # Thresholds turn a data-quality observation into PASS / WARN / FAIL.
+  max_data_age_days: 45            # [env: MAX_DATA_AGE_DAYS] freshness SLA for the weekly KPI report
+  max_duplicate_order_pct: 1.0     # > 1% duplicate order rows => FAIL (systemic), else WARN + dedupe
+  max_unparseable_ts_pct: 1.0
+  min_referential_coverage_pct: 95.0   # below => FAIL; between this and 100 => WARN
+  min_source_agreement_pct: 99.0       # driver-app vs order-DB agreement needed before we recover a field
+  distance_sentinel_km: 18.0           # value observed on ~50% of orders — treated as a default, not a measurement
+  bengaluru_bbox: {lat_min: 12.6, lat_max: 13.4, lon_min: 77.2, lon_max: 78.0}
+
+required_columns:
+  orders: [order_id, customer_id, restaurant_id, driver_id, created_at, promised_eta, pickup_at, actual_delivery_at, final_status, distance_km_estimate, traffic_bucket, weather_bucket]
+  dispatch: [order_id, driver_id, original_driver_id, assigned_at, reassigned_at, estimated_pickup_at, current_delivery_eta, dispatch_status]
+  driver_events: [driver_id, order_id, type, timestamp]
+  support_tickets: [ticket_id, order_id, created_at, category]
+  customer_app_actions: [action_id, order_id, customer_id, action_type, action_at]
+  order_interventions: [intervention_id, order_id, intervention_type, intervention_at, initiated_by, reason_code]
+  restaurant_status: [order_id, restaurant_id, status, last_updated_at]

@@ -1,0 +1,29 @@
+field,raw_value,canonical_value,change_type,owner,owner_confirmed,note
+final_status,delivered,delivered,none,Order Platform,yes,
+final_status,Delivered,delivered,representation,Order Platform,yes,case only
+final_status,cancelled,cancelled,none,Order Platform,yes,
+traffic_bucket,low,low,none,Maps/Traffic,yes,
+traffic_bucket,medium,medium,none,Maps/Traffic,yes,
+traffic_bucket,high,high,none,Maps/Traffic,yes,
+traffic_bucket,HIGH,high,representation,Maps/Traffic,yes,case only
+traffic_bucket,severe,severe,none,Maps/Traffic,yes,
+weather_bucket,clear,clear,none,Weather feed,yes,
+weather_bucket,rain,rain,none,Weather feed,yes,
+weather_bucket,heavy_rain,heavy_rain,none,Weather feed,yes,
+restaurant_status,preparing,preparing,none,Restaurant Partnerships,yes,
+restaurant_status,ready,ready,none,Restaurant Partnerships,yes,
+restaurant_status,Ready,ready,representation,Restaurant Partnerships,yes,case only
+restaurant_status,READY,ready,representation,Restaurant Partnerships,yes,case only
+restaurant_status,ready ,ready,representation,Restaurant Partnerships,yes,trailing space
+restaurant_status,handed_off,handed_off,none,Restaurant Partnerships,yes,
+restaurant_status,handoff,handed_off,semantic,Restaurant Partnerships,no,probably the same state from a different client app - needs owner sign-off
+restaurant_status,unknown,unknown,none,Restaurant Partnerships,no,kept as unknown - never guessed
+ticket_category,late_delivery,late_delivery,none,Support,yes,
+ticket_category,late_delivery ,late_delivery,representation,Support,yes,trailing space
+ticket_category,Late Delivery,late_delivery,representation,Support,yes,case + separator
+ticket_category,eta_changed,eta_changed,none,Support,yes,
+ticket_category,ETA issue,eta_changed,semantic,Support,no,"'issue' is broader than 'changed' - mapped provisionally, needs Support Lead sign-off"
+ticket_category,restaurant_delay,restaurant_delay,none,Support,yes,
+ticket_category,ready_but_waiting,ready_but_waiting,none,Support,yes,
+ticket_category,status_mismatch,status_mismatch,none,Support,yes,
+ticket_category,driver_not_moving,driver_not_moving,none,Support,yes,
