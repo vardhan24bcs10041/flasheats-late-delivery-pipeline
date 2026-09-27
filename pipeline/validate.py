@@ -16,7 +16,7 @@ from datetime import date
 import numpy as np
 import pandas as pd
 
-from pipeline.common import map_categories, minutes, parse_ts, resolve_delivery_and_pickup
+from pipeline.common import map_categories, parse_ts, resolve_delivery_and_pickup
 
 
 class ValidationError(ValueError):
