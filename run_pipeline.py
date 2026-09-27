@@ -101,6 +101,23 @@ def apply_chaos(extracted: dict, scenario: str, logger) -> None:
         o.df["created_at"] = ts.dt.strftime("%Y-%m-%dT%H:%M:%S")
 
 
+def scope_to_window(extracted: dict, window: dict, logger) -> None:
+    """With --from-date/--to-date only the orders query is windowed; scope order-level sources to those orders.
+
+    Bronze keeps the full raw extract; only the in-memory frames are scoped.
+    """
+    if not (window.get("from") or window.get("to")):
+        return
+    ids = set(extracted["orders"].df["order_id"])
+    for name in ["dispatch", "driver_events", "support_tickets", "customer_app_actions",
+                 "order_interventions", "restaurant_status"]:
+        df = extracted[name].df
+        before = len(df)
+        keep = df["order_id"].isin(ids) | (df["order_id"].isna() if name == "support_tickets" else False)
+        extracted[name].df = df[keep].copy()
+        logger.info("Scoped to window | source=%s rows=%s->%s", name, before, int(keep.sum()))
+
+
 def frame_hash(df: pd.DataFrame) -> str:
     return hashlib.sha256(pd.util.hash_pandas_object(df, index=False).values.tobytes()).hexdigest()[:16]
 
@@ -154,6 +171,7 @@ def run(run_date: date, chaos: str = "none", replay: str | None = None, window: 
         manifest["sources"] = [e.manifest_entry() for e in extracted.values()]
         logger.info("Bronze preserved | partition=%s", rel(bronze))
 
+        scope_to_window(extracted, window, logger)
         apply_chaos(extracted, chaos, logger)
 
         # ------------------------------------------------------------------ 2. VALIDATE (gate)

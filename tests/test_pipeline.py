@@ -54,3 +54,11 @@ def test_failed_run_does_not_overwrite_last_good_output(isolated):
     good = _hashes(tmp)
     assert rp.run(RUN_DATE, chaos="stale_data") == 2
     assert _hashes(tmp) == good                                # last good publication untouched
+
+
+def test_weekly_window_run_scopes_every_source(isolated):
+    tmp, rp = isolated
+    window = {"from": "2026-08-17", "to": "2026-08-24"}
+    assert rp.run(date(2026, 8, 24), window=window) == 0          # same code, different logical week
+    journey = tmp / "data" / "gold" / "run_date=2026-08-24" / "order_journey.csv"
+    assert sum(1 for _ in open(journey)) - 1 == 403

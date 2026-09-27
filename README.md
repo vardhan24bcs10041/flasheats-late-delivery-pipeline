@@ -67,7 +67,8 @@ flowchart LR
 ```bash
 python -m pip install -r requirements.txt
 python run_pipeline.py --run-date 2026-09-27        # one command: starts the mock Dispatch API, runs all stages
-python -m pytest                                     # 12 tests: retries, gate, idempotency, safe failure
+python run_pipeline.py --run-date 2026-08-24 --from-date 2026-08-17 --to-date 2026-08-24   # same code, one week
+python -m pytest                                     # 13 tests: retries, gate, idempotency, safe failure, weekly window
 ```
 
 | Dependability (Class 8) | How | Prove it |
