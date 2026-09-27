@@ -1,0 +1,4 @@
+# Raw client data must stay byte-identical (checksums in the run manifest)
+source_systems/** -text
+*.db binary
+*.png binary

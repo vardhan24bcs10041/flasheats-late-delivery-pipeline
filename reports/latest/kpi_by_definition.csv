@@ -1,0 +1,5 @@
+definition,population,orders,late_rate_pct
+VP Operations — any delivered order after promised ETA  [PUBLISHED],"delivered, completion time from any agreed source, valid promise",1528,56.5
+Support Lead — only > 10 min late counts,same as above,1528,23.2
+Finance — exclude cancelled/refunded,same as VP Ops (cancelled already excluded),1528,56.5
+Data Team (historical dashboard) — delivered with non-null DB actual time,"Order DB only, no recovery, no promise check",1495,56.4

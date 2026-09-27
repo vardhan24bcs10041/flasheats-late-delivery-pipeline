@@ -1,0 +1,6 @@
+stage,on_time_median_min,late_median_min,gap_min
+Order -> driver assigned,2.3,2.3,0.0
+Assigned -> picked up (first mile),16.6,28.8,12.2
+Pickup vs Dispatch's own estimate,1.8,13.9,12.1
+Picked up -> delivered (transit),45.5,49.0,3.5
+Delivered vs promise,-5.5,8.0,13.5

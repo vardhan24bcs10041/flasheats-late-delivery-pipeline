@@ -1,0 +1,57 @@
+{
+  "M1": {
+    "name": "Late Delivery Rate",
+    "type": "Outcome (lagging) \u2014 project KPI",
+    "value_pct": 56.5,
+    "numerator": 863,
+    "denominator": 1528,
+    "median_lateness_of_late_min": 8.0,
+    "severe_late_rate_pct_gt10": 23.2,
+    "p90_delay_min": 17.9
+  },
+  "M2": {
+    "name": "Pickup SLA Miss Rate",
+    "type": "Workflow driver (leading, controllable)",
+    "value_pct": 42.0,
+    "definition": "picked up > 10 min after Dispatch's estimated_pickup_at",
+    "late_rate_if_miss_pct": 96.9,
+    "late_rate_if_on_time_pickup_pct": 27.2,
+    "late_orders_explained_by_pickup_pct": 92.4
+  },
+  "M3": {
+    "name": "Customer Escalation Rate (late orders)",
+    "type": "Customer interaction (leading CX signal)",
+    "value_pct": 29.9,
+    "definition": "late orders where the customer opened support in-app OR raised a ticket / late orders",
+    "severe_late_escalation_pct": 52.3,
+    "on_time_escalation_pct": 5.1,
+    "late_orders_with_ticket_pct": 19.0,
+    "support_opened_orders_that_were_late_pct": 100.0
+  },
+  "M4": {
+    "name": "Preventive Intervention Coverage (late orders)",
+    "type": "Intervention (controllable)",
+    "value_pct": 15.2,
+    "definition": "late orders that got a non-refund intervention between order creation and promised ETA / late orders",
+    "late_rate_with_preventive_pct": 58.5,
+    "late_rate_no_intervention_pct": 56.3,
+    "note": "association only \u2014 interventions target at-risk orders (selection bias); no control group"
+  },
+  "M5": {
+    "name": "ETA Drift",
+    "type": "ETA reliability (diagnostic)",
+    "value_min": 8.1,
+    "definition": "median(Dispatch current_delivery_eta - promised_eta)",
+    "late_vs_revised_eta_pct": 26.2,
+    "late_vs_original_promise_pct": 56.5
+  },
+  "population": {
+    "orders_total": 1600,
+    "kpi_eligible": 1528,
+    "excluded_cancelled": 68,
+    "excluded_promise_invalid": 4,
+    "excluded_no_completion_time": 0,
+    "recovered_from_driver_app": 37,
+    "recovered_orders_late_rate_pct": 64.9
+  }
+}

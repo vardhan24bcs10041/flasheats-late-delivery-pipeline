@@ -1,0 +1,131 @@
+entity,entity_id,check_id,issue,action
+order,O00120,V03,duplicate rows disagree on ['traffic_bucket'],kept first row
+order,O00723,V03,duplicate rows disagree on ['traffic_bucket'],kept first row
+order,O01302,V03,duplicate rows disagree on ['traffic_bucket'],kept first row
+order,O00043,V11,delivered but actual_delivery_at missing in Order DB,recovered from Driver App delivered event
+order,O00095,V11,delivered but actual_delivery_at missing in Order DB,recovered from Driver App delivered event
+order,O00127,V11,delivered but actual_delivery_at missing in Order DB,recovered from Driver App delivered event
+order,O00206,V11,delivered but actual_delivery_at missing in Order DB,recovered from Driver App delivered event
+order,O00286,V11,delivered but actual_delivery_at missing in Order DB,recovered from Driver App delivered event
+order,O00341,V11,delivered but actual_delivery_at missing in Order DB,recovered from Driver App delivered event
+order,O00417,V11,delivered but actual_delivery_at missing in Order DB,recovered from Driver App delivered event
+order,O00488,V11,delivered but actual_delivery_at missing in Order DB,recovered from Driver App delivered event
+order,O00548,V11,delivered but actual_delivery_at missing in Order DB,recovered from Driver App delivered event
+order,O00587,V11,delivered but actual_delivery_at missing in Order DB,recovered from Driver App delivered event
+order,O00610,V11,delivered but actual_delivery_at missing in Order DB,recovered from Driver App delivered event
+order,O00672,V11,delivered but actual_delivery_at missing in Order DB,recovered from Driver App delivered event
+order,O00675,V11,delivered but actual_delivery_at missing in Order DB,recovered from Driver App delivered event
+order,O00716,V11,delivered but actual_delivery_at missing in Order DB,recovered from Driver App delivered event
+order,O00740,V11,delivered but actual_delivery_at missing in Order DB,recovered from Driver App delivered event
+order,O00774,V11,delivered but actual_delivery_at missing in Order DB,recovered from Driver App delivered event
+order,O00830,V11,delivered but actual_delivery_at missing in Order DB,recovered from Driver App delivered event
+order,O00910,V11,delivered but actual_delivery_at missing in Order DB,recovered from Driver App delivered event
+order,O00912,V11,delivered but actual_delivery_at missing in Order DB,recovered from Driver App delivered event
+order,O01014,V11,delivered but actual_delivery_at missing in Order DB,recovered from Driver App delivered event
+order,O01034,V11,delivered but actual_delivery_at missing in Order DB,recovered from Driver App delivered event
+order,O01052,V11,delivered but actual_delivery_at missing in Order DB,recovered from Driver App delivered event
+order,O01080,V11,delivered but actual_delivery_at missing in Order DB,recovered from Driver App delivered event
+order,O01149,V11,delivered but actual_delivery_at missing in Order DB,recovered from Driver App delivered event
+order,O01175,V11,delivered but actual_delivery_at missing in Order DB,recovered from Driver App delivered event
+order,O01195,V11,delivered but actual_delivery_at missing in Order DB,recovered from Driver App delivered event
+order,O01206,V11,delivered but actual_delivery_at missing in Order DB,recovered from Driver App delivered event
+order,O01214,V11,delivered but actual_delivery_at missing in Order DB,recovered from Driver App delivered event
+order,O01252,V11,delivered but actual_delivery_at missing in Order DB,recovered from Driver App delivered event
+order,O01311,V11,delivered but actual_delivery_at missing in Order DB,recovered from Driver App delivered event
+order,O01343,V11,delivered but actual_delivery_at missing in Order DB,recovered from Driver App delivered event
+order,O01373,V11,delivered but actual_delivery_at missing in Order DB,recovered from Driver App delivered event
+order,O01398,V11,delivered but actual_delivery_at missing in Order DB,recovered from Driver App delivered event
+order,O01412,V11,delivered but actual_delivery_at missing in Order DB,recovered from Driver App delivered event
+order,O01442,V11,delivered but actual_delivery_at missing in Order DB,recovered from Driver App delivered event
+order,O01506,V11,delivered but actual_delivery_at missing in Order DB,recovered from Driver App delivered event
+order,O01512,V11,delivered but actual_delivery_at missing in Order DB,recovered from Driver App delivered event
+order,O00101,V08,promised_eta earlier than created_at,excluded from KPI denominator
+order,O00102,V08,promised_eta earlier than created_at,excluded from KPI denominator
+order,O00103,V08,promised_eta earlier than created_at,excluded from KPI denominator
+order,O00104,V08,promised_eta earlier than created_at,excluded from KPI denominator
+order,O00051,V09,Order DB pickup_at later than actual_delivery_at,pickup taken from Driver App
+order,O00052,V09,Order DB pickup_at later than actual_delivery_at,pickup taken from Driver App
+order,O00053,V09,Order DB pickup_at later than actual_delivery_at,pickup taken from Driver App
+order,O00054,V09,Order DB pickup_at later than actual_delivery_at,pickup taken from Driver App
+order,O00055,V09,Order DB pickup_at later than actual_delivery_at,pickup taken from Driver App
+order,O00004,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00017,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00075,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00129,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00154,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00173,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00199,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00221,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00265,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00273,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00279,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00282,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00289,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00307,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00312,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00337,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00362,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00384,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00432,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00457,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00479,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00492,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00495,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00498,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00529,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00531,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00569,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00572,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00586,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00630,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00637,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00688,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00694,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00728,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00734,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00772,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00798,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00824,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00831,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00840,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00958,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O01023,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O01058,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O01066,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O01077,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O01078,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O01096,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O01119,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O01150,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O01157,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O01222,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O01237,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O01240,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O01273,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O01288,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O01332,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O01346,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O01357,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O01378,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O01415,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O01425,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O01441,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O01488,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O01492,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O01493,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O01507,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O01568,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O01596,V10,cancelled order has a DB pickup_at but no Driver App pickup,DB pickup ignored
+order,O00401,V04,restaurant_id is null,kept; excluded from per-restaurant/per-driver cuts
+order,O00402,V04,restaurant_id is null,kept; excluded from per-restaurant/per-driver cuts
+order,O00403,V04,restaurant_id is null,kept; excluded from per-restaurant/per-driver cuts
+order,O00404,V04,driver_id is null,kept; excluded from per-restaurant/per-driver cuts
+order,O00405,V04,driver_id is null,kept; excluded from per-restaurant/per-driver cuts
+order,O00406,V04,driver_id is null,kept; excluded from per-restaurant/per-driver cuts
+ticket,T00013,V21,exact duplicate row,removed
+ticket,T00001,V21,no order_id,"kept, cannot be joined to an order"
+ticket,T00002,V21,no order_id,"kept, cannot be joined to an order"
+ticket,T00003,V21,no order_id,"kept, cannot be joined to an order"
+intervention,INT-0038,V14,intervention after delivery,not counted as preventive
+restaurant,R007,V18,coordinates outside Bengaluru,flagged coords_valid=False
+restaurant,R019,V18,coordinates outside Bengaluru,flagged coords_valid=False

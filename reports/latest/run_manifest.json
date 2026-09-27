@@ -1,0 +1,615 @@
+{
+  "run_id": "4781d61d",
+  "run_date": "2026-09-27",
+  "started_at": "2026-09-27T18:55:34",
+  "chaos": "none",
+  "replay_raw": null,
+  "window": {
+    "from": null,
+    "to": null
+  },
+  "git_commit": "f762cc9",
+  "config_fingerprint": "449d5ce4422f",
+  "config_overrides": {},
+  "config": {
+    "api": {
+      "page_size": 100,
+      "max_retries": 4,
+      "retry_base_seconds": 1.0,
+      "timeout_seconds": 5,
+      "retryable_status": [
+        429,
+        500,
+        502,
+        503,
+        504
+      ],
+      "start_mock_api": true
+    },
+    "kpi": {
+      "primary_definition": "vp_ops_any_delay",
+      "late_threshold_min": 0,
+      "severe_threshold_min": 10,
+      "pickup_sla_grace_min": 10
+    },
+    "validation": {
+      "max_data_age_days": 45,
+      "max_duplicate_order_pct": 1.0,
+      "max_unparseable_ts_pct": 1.0,
+      "min_referential_coverage_pct": 95.0,
+      "min_source_agreement_pct": 99.0,
+      "distance_sentinel_km": 18.0,
+      "bengaluru_bbox": {
+        "lat_min": 12.6,
+        "lat_max": 13.4,
+        "lon_min": 77.2,
+        "lon_max": 78.0
+      }
+    }
+  },
+  "sources": [
+    {
+      "source": "orders",
+      "mode": "SQL",
+      "system": "Order Platform DB",
+      "rows": 1603,
+      "completeness": {
+        "source_count": 1603,
+        "retrieved": 1603,
+        "complete": true
+      },
+      "raw_files": [
+        {
+          "path": "order_db/orders.csv",
+          "sha256": "2f50fee435bf39c9"
+        }
+      ]
+    },
+    {
+      "source": "restaurants",
+      "mode": "SQL",
+      "system": "Order Platform DB",
+      "rows": 60,
+      "completeness": {
+        "source_count": 60,
+        "retrieved": 60,
+        "complete": true
+      },
+      "raw_files": [
+        {
+          "path": "order_db/restaurants.csv",
+          "sha256": "79632ee3d227fab2"
+        }
+      ]
+    },
+    {
+      "source": "drivers",
+      "mode": "SQL",
+      "system": "Order Platform DB",
+      "rows": 120,
+      "completeness": {
+        "source_count": 120,
+        "retrieved": 120,
+        "complete": true
+      },
+      "raw_files": [
+        {
+          "path": "order_db/drivers.csv",
+          "sha256": "fccaea9943cd6097"
+        }
+      ]
+    },
+    {
+      "source": "dispatch",
+      "mode": "API",
+      "system": "Dispatch Service",
+      "rows": 1600,
+      "completeness": {
+        "expected_total": 1600,
+        "retrieved": 1600,
+        "unique_order_ids": 1600,
+        "pages": 16,
+        "retries": 2,
+        "transient_errors": [
+          {
+            "page": 3,
+            "status": 500,
+            "attempt": 1
+          },
+          {
+            "page": 5,
+            "status": 429,
+            "attempt": 1
+          }
+        ],
+        "retrieved_via": "live API",
+        "complete": true
+      },
+      "raw_files": [
+        {
+          "path": "dispatch_api/dispatch_page_001.json",
+          "sha256": "74c444ee67d52efe"
+        },
+        {
+          "path": "dispatch_api/dispatch_page_002.json",
+          "sha256": "422f247093a9128d"
+        },
+        {
+          "path": "dispatch_api/dispatch_page_003.json",
+          "sha256": "a545ac9f425148d2"
+        },
+        {
+          "path": "dispatch_api/dispatch_page_004.json",
+          "sha256": "1f6b3d9ca495ce75"
+        },
+        {
+          "path": "dispatch_api/dispatch_page_005.json",
+          "sha256": "2d327084b0e2aaa4"
+        },
+        {
+          "path": "dispatch_api/dispatch_page_006.json",
+          "sha256": "d1ec3da1347404e6"
+        },
+        {
+          "path": "dispatch_api/dispatch_page_007.json",
+          "sha256": "1e625c4b23fd468e"
+        },
+        {
+          "path": "dispatch_api/dispatch_page_008.json",
+          "sha256": "130cfb656d62d819"
+        },
+        {
+          "path": "dispatch_api/dispatch_page_009.json",
+          "sha256": "cf81cffbbacf3e45"
+        },
+        {
+          "path": "dispatch_api/dispatch_page_010.json",
+          "sha256": "a1e6eaf155559b0b"
+        },
+        {
+          "path": "dispatch_api/dispatch_page_011.json",
+          "sha256": "8cc9c42d24e70911"
+        },
+        {
+          "path": "dispatch_api/dispatch_page_012.json",
+          "sha256": "1607960016bb5ee1"
+        },
+        {
+          "path": "dispatch_api/dispatch_page_013.json",
+          "sha256": "7d1cf9996743610d"
+        },
+        {
+          "path": "dispatch_api/dispatch_page_014.json",
+          "sha256": "a866ff2eab015576"
+        },
+        {
+          "path": "dispatch_api/dispatch_page_015.json",
+          "sha256": "5395785800e80090"
+        },
+        {
+          "path": "dispatch_api/dispatch_page_016.json",
+          "sha256": "68287117e2f4d8cd"
+        }
+      ]
+    },
+    {
+      "source": "driver_events",
+      "mode": "JSON",
+      "system": "Driver App",
+      "rows": 10035,
+      "completeness": {
+        "drivers": 120,
+        "nested_events": 10035,
+        "flattened_rows": 10035,
+        "complete": true
+      },
+      "raw_files": [
+        {
+          "path": "exports/driver_events.json",
+          "sha256": "8102eaec0ec206bc"
+        }
+      ]
+    },
+    {
+      "source": "support_tickets",
+      "mode": "CSV",
+      "system": "Support Platform",
+      "rows": 202,
+      "completeness": {
+        "file_records": 202,
+        "retrieved": 202,
+        "complete": true
+      },
+      "raw_files": [
+        {
+          "path": "exports/support_tickets.csv",
+          "sha256": "ee2f43a9d69e6643"
+        }
+      ]
+    },
+    {
+      "source": "customer_app_actions",
+      "mode": "CSV",
+      "system": "Customer App analytics",
+      "rows": 2365,
+      "completeness": {
+        "file_records": 2365,
+        "retrieved": 2365,
+        "complete": true
+      },
+      "raw_files": [
+        {
+          "path": "exports/customer_app_actions.csv",
+          "sha256": "154a6640ab936779"
+        }
+      ]
+    },
+    {
+      "source": "order_interventions",
+      "mode": "CSV",
+      "system": "Ops intervention log",
+      "rows": 260,
+      "completeness": {
+        "file_records": 260,
+        "retrieved": 260,
+        "complete": true
+      },
+      "raw_files": [
+        {
+          "path": "exports/order_interventions.csv",
+          "sha256": "26d379729f57a8bc"
+        }
+      ]
+    },
+    {
+      "source": "restaurant_status",
+      "mode": "CSV",
+      "system": "Restaurant partner feed",
+      "rows": 502,
+      "completeness": {
+        "file_records": 502,
+        "retrieved": 502,
+        "complete": true
+      },
+      "raw_files": [
+        {
+          "path": "exports/restaurant_status.csv",
+          "sha256": "6551c775e4ece7a1"
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "counts": {
+      "PASS": 11,
+      "WARN": 16,
+      "FAIL": 0,
+      "UNKNOWN": 5
+    },
+    "results": [
+      {
+        "check_id": "V01",
+        "layer": "technical",
+        "check": "Required columns present",
+        "status": "PASS",
+        "evidence": "43 required columns across 7 sources",
+        "action": "none",
+        "owner": ""
+      },
+      {
+        "check_id": "V02",
+        "layer": "technical",
+        "check": "Retrieval completeness (every source)",
+        "status": "PASS",
+        "evidence": "all 9 sources reconcile to their source counts; dispatch 1600/1600 over 16 pages, 2 transient errors retried",
+        "action": "none",
+        "owner": ""
+      },
+      {
+        "check_id": "V03",
+        "layer": "technical",
+        "check": "Business grain: one row per order_id",
+        "status": "WARN",
+        "evidence": "3 extra rows (0.19%) for 3 orders; duplicates disagree on: ['traffic_bucket']",
+        "action": "Keep first row per order_id (agreed grain); conflicting field values logged in issues_log",
+        "owner": "Order Platform"
+      },
+      {
+        "check_id": "V04",
+        "layer": "technical",
+        "check": "Critical fields not null",
+        "status": "WARN",
+        "evidence": "critical nulls {'order_id': 0, 'created_at': 0, 'promised_eta': 0, 'final_status': 0}; soft nulls {'restaurant_id': 3, 'driver_id': 3}",
+        "action": "Orders missing restaurant/driver kept; excluded only from restaurant/driver cuts",
+        "owner": "Order Platform"
+      },
+      {
+        "check_id": "V05",
+        "layer": "technical",
+        "check": "Timestamps parseable",
+        "status": "PASS",
+        "evidence": "24471 timestamps checked, unparseable=0; mixed precision formats in ['orders.promised_eta', 'dispatch.current_delivery_eta', 'customer_app_actions.action_at']",
+        "action": "Parsed with a mixed-format ISO parser (a strict parser crashes on these files)",
+        "owner": "Data platform"
+      },
+      {
+        "check_id": "V06",
+        "layer": "technical",
+        "check": "Freshness SLA (weekly KPI report)",
+        "status": "PASS",
+        "evidence": "latest order created_at=2026-08-28 23:33:00; age=30 days vs allowed 45",
+        "action": "none",
+        "owner": "Order Platform"
+      },
+      {
+        "check_id": "V07.1",
+        "layer": "technical",
+        "check": "Cross-source mapping: orders.restaurant_id -> restaurants",
+        "status": "WARN",
+        "evidence": "coverage=100.0% of non-null keys; null keys=3",
+        "action": "Unmapped/null keys kept and flagged",
+        "owner": ""
+      },
+      {
+        "check_id": "V07.2",
+        "layer": "technical",
+        "check": "Cross-source mapping: orders.driver_id -> drivers",
+        "status": "WARN",
+        "evidence": "coverage=100.0% of non-null keys; null keys=3",
+        "action": "Unmapped/null keys kept and flagged",
+        "owner": ""
+      },
+      {
+        "check_id": "V07.3",
+        "layer": "technical",
+        "check": "Cross-source mapping: orders -> dispatch record",
+        "status": "PASS",
+        "evidence": "coverage=100.0% of non-null keys; null keys=0",
+        "action": "none",
+        "owner": ""
+      },
+      {
+        "check_id": "V07.4",
+        "layer": "technical",
+        "check": "Cross-source mapping: dispatch.order_id -> orders",
+        "status": "PASS",
+        "evidence": "coverage=100.0% of non-null keys; null keys=0",
+        "action": "none",
+        "owner": ""
+      },
+      {
+        "check_id": "V07.5",
+        "layer": "technical",
+        "check": "Cross-source mapping: driver_events.order_id -> orders",
+        "status": "PASS",
+        "evidence": "coverage=100.0% of non-null keys; null keys=0",
+        "action": "none",
+        "owner": ""
+      },
+      {
+        "check_id": "V07.6",
+        "layer": "technical",
+        "check": "Cross-source mapping: support_tickets.order_id -> orders",
+        "status": "WARN",
+        "evidence": "coverage=100.0% of non-null keys; null keys=3",
+        "action": "Unmapped/null keys kept and flagged",
+        "owner": ""
+      },
+      {
+        "check_id": "V07.7",
+        "layer": "technical",
+        "check": "Cross-source mapping: customer_app_actions.order_id -> orders",
+        "status": "PASS",
+        "evidence": "coverage=100.0% of non-null keys; null keys=0",
+        "action": "none",
+        "owner": ""
+      },
+      {
+        "check_id": "V07.8",
+        "layer": "technical",
+        "check": "Cross-source mapping: order_interventions.order_id -> orders",
+        "status": "PASS",
+        "evidence": "coverage=100.0% of non-null keys; null keys=0",
+        "action": "none",
+        "owner": ""
+      },
+      {
+        "check_id": "V07.9",
+        "layer": "technical",
+        "check": "Cross-source mapping: restaurant_status.order_id -> orders",
+        "status": "PASS",
+        "evidence": "coverage=100.0% of non-null keys; null keys=0",
+        "action": "none",
+        "owner": ""
+      },
+      {
+        "check_id": "V08",
+        "layer": "lifecycle",
+        "check": "Promise made after order creation (promised_eta >= created_at)",
+        "status": "WARN",
+        "evidence": "4 orders promised before they were created (all exactly -10 min)",
+        "action": "Flagged `promise_invalid`; excluded from the KPI denominator (lateness vs an impossible promise is meaningless). Sensitivity reported.",
+        "owner": "Order Platform / ETA service"
+      },
+      {
+        "check_id": "V09",
+        "layer": "lifecycle",
+        "check": "Order DB: pickup_at before actual_delivery_at",
+        "status": "WARN",
+        "evidence": "5 orders delivered before their DB pickup; Driver App pickup is chronologically valid for 5 of them",
+        "action": "Pickup time taken from Driver App (system of record for pickup); DB value kept for audit",
+        "owner": "Order Platform"
+      },
+      {
+        "check_id": "V10",
+        "layer": "lifecycle",
+        "check": "Cancelled orders carry no fulfilment evidence",
+        "status": "WARN",
+        "evidence": "68/68 cancelled orders have a DB pickup_at, but Driver App shows 0 pickups \u2014 DB pickup_at looks like a scheduled/placeholder value",
+        "action": "DB pickup_at ignored for cancelled orders; semantics question raised with Order Platform",
+        "owner": "Order Platform"
+      },
+      {
+        "check_id": "V11",
+        "layer": "lifecycle",
+        "check": "Delivered orders have a completion timestamp",
+        "status": "WARN",
+        "evidence": "37 delivered orders lack actual_delivery_at; 37 have a Driver App `delivered` event",
+        "action": "Recover from Driver App only if V12 passes; flag `delivery_ts_source`",
+        "owner": "Order Platform"
+      },
+      {
+        "check_id": "V12",
+        "layer": "lifecycle",
+        "check": "Driver App vs Order DB agree on delivery time (recovery allowed?)",
+        "status": "PASS",
+        "evidence": "1495 orders present in both; 100.0% agree within 60s (max |diff|=0s)",
+        "action": "Recovery ENABLED for missing DB timestamps",
+        "owner": ""
+      },
+      {
+        "check_id": "V13",
+        "layer": "lifecycle",
+        "check": "Current driver agrees across Order DB and Dispatch",
+        "status": "WARN",
+        "evidence": "98 mismatches; 98 explained by a dispatch reassignment or a null DB driver_id",
+        "action": "Dispatch = system of record for driver assignment; Order DB keeps the ORIGINAL driver",
+        "owner": "Dispatch"
+      },
+      {
+        "check_id": "V14",
+        "layer": "lifecycle",
+        "check": "Interventions happen inside the order lifecycle",
+        "status": "WARN",
+        "evidence": "260 interventions: 0 before order creation, 1 after delivery, 12 on cancelled orders",
+        "action": "Only interventions between creation and promised ETA count as 'preventive' in metric M4",
+        "owner": "Operations"
+      },
+      {
+        "check_id": "V15",
+        "layer": "lifecycle",
+        "check": "Driver App event arrays are in time order",
+        "status": "WARN",
+        "evidence": "120/120 drivers' event arrays are NOT time-ordered (gps pings listed before pickup although later in time)",
+        "action": "Always sort by event timestamp \u2014 reading array order wrongly suggests 'no GPS after pickup'",
+        "owner": "Driver App"
+      },
+      {
+        "check_id": "V16",
+        "layer": "semantic",
+        "check": "Category values map to an agreed vocabulary",
+        "status": "WARN",
+        "evidence": "representation fixes={'final_status': {'Delivered': 5}, 'traffic_bucket': {'HIGH': 3}, 'restaurant_status': {'READY': 1, 'Ready': 1, 'ready ': 2}, 'ticket_category': {'Late Delivery': 1, 'late_delivery ': 1}}; owner-UNconfirmed semantic mappings={'restaurant_status': {'handoff': 1}, 'ticket_category': {'ETA issue': 1}}; unmapped=none",
+        "action": "Case/whitespace normalised via config/category_map.csv; semantic merges applied provisionally and listed for owner sign-off; unmapped values kept as UNMAPPED:<raw>",
+        "owner": "Support Lead / Restaurant Ops"
+      },
+      {
+        "check_id": "V17",
+        "layer": "semantic",
+        "check": "distance_km_estimate is a measurement, not a default",
+        "status": "WARN",
+        "evidence": "806 rows (50.38%) are exactly 18.0 km; 806 of them also carry a second-precision (rounded) promised_eta -> looks like a fallback ETA path",
+        "action": "Flag `distance_is_default`; distance NOT used as a delay driver until the owner confirms",
+        "owner": "Dispatch / Maps"
+      },
+      {
+        "check_id": "V18",
+        "layer": "semantic",
+        "check": "Restaurant coordinates inside Bengaluru",
+        "status": "WARN",
+        "evidence": "2 restaurants outside the city box: [{'restaurant_id': 'R007', 'lat': 95.12, 'lon': 77.694095}, {'restaurant_id': 'R019', 'lat': 12.847954, 'lon': 190.33}]",
+        "action": "Flag `coords_valid=False`; not used (no geo metric in scope)",
+        "owner": "Restaurant Partnerships"
+      },
+      {
+        "check_id": "V19",
+        "layer": "semantic",
+        "check": "Reassignment: Dispatch and intervention log tell the same story",
+        "status": "UNKNOWN",
+        "evidence": "Dispatch reassigned 95 orders; intervention log records 79 DRIVER_REASSIGNMENT; overlap=4",
+        "action": "Dispatch = system of record for 'was it reassigned'; intervention log = what ops ASKED for. Question raised with Dispatch + Ops leads",
+        "owner": "Dispatch / Operations"
+      },
+      {
+        "check_id": "V20",
+        "layer": "semantic",
+        "check": "Restaurant status feed fit to attribute pickup delay",
+        "status": "UNKNOWN",
+        "evidence": "one last-updated snapshot per order (no history); covers 31.66% of delivered orders; 104 'preparing/ready' updates arrive AFTER the driver already picked up",
+        "action": "Not used for attribution. Needs FOOD_READY event history from restaurants",
+        "owner": "Restaurant Partnerships"
+      },
+      {
+        "check_id": "V21",
+        "layer": "semantic",
+        "check": "Support tickets: unique and linkable",
+        "status": "WARN",
+        "evidence": "1 exact duplicate ticket rows; 3 tickets without order_id",
+        "action": "Exact duplicates removed; unlinked tickets kept in the ticket table but cannot join to an order",
+        "owner": "Support"
+      },
+      {
+        "check_id": "V22",
+        "layer": "semantic",
+        "check": "Customer-visible ETA = stored promised_eta?",
+        "status": "UNKNOWN",
+        "evidence": "39/39 'late_delivery' tickets were raised BEFORE the stored promised_eta",
+        "action": "The ETA the customer saw is not captured anywhere; KPI uses stored promised_eta. Ask App team",
+        "owner": "Customer App"
+      },
+      {
+        "check_id": "V23",
+        "layer": "organizational",
+        "check": "Late Delivery Rate has one agreed definition + owner",
+        "status": "UNKNOWN",
+        "evidence": "4 competing definitions (VP Operations, Support Lead, Finance, Data Team); client note: 'No canonical KPI owner is formally documented.'",
+        "action": "Publish VP Ops definition as primary, show all definitions side by side; owner sign-off requested",
+        "owner": "VP Operations"
+      },
+      {
+        "check_id": "V24",
+        "layer": "organizational",
+        "check": "Driver-arrived-at-restaurant event exists",
+        "status": "UNKNOWN",
+        "evidence": "driver event types = ['assigned', 'delivered', 'gps_ping', 'picked_up']; GPS ping gap median ~13 min (too sparse for a geofence)",
+        "action": "Pickup delay cannot be split restaurant vs driver. Instrumentation request logged",
+        "owner": "Driver App"
+      }
+    ]
+  },
+  "gate": {
+    "counts": {
+      "PASS": 11,
+      "WARN": 16,
+      "FAIL": 0,
+      "UNKNOWN": 5
+    },
+    "publish_outputs": true,
+    "fitness_by_decision": {
+      "Weekly late-delivery KPI report": "READY (with WARN caveats)",
+      "Where delay accumulates (stage metrics)": "READY",
+      "Restaurant-vs-driver blame for pickup delay": "NOT READY (V20, V24)",
+      "AI delay-prediction model": "NOT READY \u2014 labels & key events not reliable (V20, V22, V24)"
+    }
+  },
+  "status": "PUBLISHED",
+  "finished_at": "2026-09-27T18:55:40",
+  "outputs": {
+    "bronze": "data/bronze/run_date=2026-09-27",
+    "silver": "data/silver/run_date=2026-09-27",
+    "gold": "data/gold/run_date=2026-09-27",
+    "reports": "reports/latest"
+  },
+  "output_hashes": {
+    "order_journey": "7b7e9f3ad3991b14",
+    "order_timeline": "0455d86e69f0cff0",
+    "metrics": "0946fc18979692c8"
+  },
+  "headline": {
+    "M1": 56.5,
+    "M2": 42.0,
+    "M3": 29.9,
+    "M4": 15.2,
+    "M5": 8.1
+  }
+}
